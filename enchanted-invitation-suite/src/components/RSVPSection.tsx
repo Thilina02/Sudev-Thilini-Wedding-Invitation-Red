@@ -63,9 +63,12 @@ const RSVPSection = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mt-8"
         >
-          <p className="font-display text-3xl text-envelope-dark font-semibold mb-4">Thank You!</p>
-          <p className="font-body text-sm text-envelope font-semibold">We can't wait to celebrate with you.</p>
-        </motion.div>
+          <p className="font-display text-3xl text-envelope-dark font-medium mb-4">
+            Thank You!
+          </p>
+          <p className="font-body text-sm text-envelope font-normal">
+            We can't wait to celebrate with you.
+          </p></motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-8 space-y-6 text-left">
           <div>
@@ -88,11 +91,10 @@ const RSVPSection = () => {
                   key={option}
                   type="button"
                   onClick={() => setFormData({ ...formData, attending: option })}
-                  className={`px-6 py-3 border rounded-sm font-body text-xs tracking-wider uppercase transition-all duration-300 ${
-                    formData.attending === option
+                  className={`px-6 py-3 border rounded-sm font-body text-xs tracking-wider uppercase transition-all duration-300 ${formData.attending === option
                       ? "bg-envelope-dark text-primary-foreground border-envelope-dark shadow-lg"
                       : "border-gold-light/50 text-envelope hover:border-envelope-dark hover:text-envelope-dark"
-                  }`}
+                    }`}
                 >
                   {option}
                 </button>
