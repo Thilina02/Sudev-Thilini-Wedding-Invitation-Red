@@ -119,7 +119,7 @@ const WeddingModelSection = () => {
 
         {/* The 3D model */}
         <model-viewer
-          src="/Meshy_AI_Elegant_Indian_Weddin_0504015147_texture.glb"
+          src="/Meshy_AI_Royal_Indian_Wedding__0504063638_texture.glb"
           alt="Ivory and gold wedding couple 3D model"
           camera-controls
           touch-action="pan-y"
