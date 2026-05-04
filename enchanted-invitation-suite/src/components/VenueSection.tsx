@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Divider from "./Divider";
 import { MapPin, ExternalLink } from "lucide-react";
 
-const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/1Lbij6PJs7oXN6oY8?g_st=ic";
+const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/7bZ5LhJsoYJwxXYB9?g_st=ic";
 
 const VenueSection = () => {
   return (
