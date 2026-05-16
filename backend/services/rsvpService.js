@@ -19,3 +19,10 @@ export async function createRsvp(pool, payload) {
     message ? String(message).trim() : null,
   ]);
 }
+
+export async function listRsvps(pool) {
+  const [rows] = await pool.execute(
+    "SELECT id, name, attending, message, created_at FROM rsvps ORDER BY created_at DESC"
+  );
+  return rows;
+}

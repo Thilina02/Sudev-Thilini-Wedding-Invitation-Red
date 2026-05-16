@@ -1,8 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { createPool, ensureDatabaseAndTables } from "./services/dbService.js";
 import { createRsvpRouter } from "./routes/rsvpRoutes.js";
+import { createAuthRouter } from "./routes/authRoutes.js";
+import { createPrivateRouter } from "./routes/privateRoutes.js";
 
 const app = express();
 const databaseUrl = process.env.DATABASE_URL;
@@ -13,6 +16,7 @@ if (!databaseUrl) {
 }
 
 const allowedOrigins = [
+  "http://localhost:3000",
   "http://localhost:8080",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
@@ -31,6 +35,7 @@ app.use(cors({
   credentials: true,
 }));
 
+app.use(cookieParser());
 app.use(express.json());
 
 // Run once on cold start
@@ -45,6 +50,8 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api", createRsvpRouter(pool));
+app.use("/api/auth", createAuthRouter());
+app.use("/api/private", createPrivateRouter(pool));
 
 // ✅ NO app.listen() here — Vercel handles that
 export default app;

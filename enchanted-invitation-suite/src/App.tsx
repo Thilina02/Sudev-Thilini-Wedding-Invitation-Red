@@ -6,12 +6,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import WeddingStats from "./pages/WeddingStats.tsx";
+import { apiUrl } from "./lib/apiBase.ts";
 
 const queryClient = new QueryClient();
 
 const keepAlive = async () => {
   try {
-    await fetch(`${import.meta.env.VITE_API_URL}/api/keep-alive`);
+    await fetch(apiUrl("/api/keep-alive"));
     console.log("Keep-alive ping sent.");
   } catch (err) {
     console.warn("Keep-alive ping failed:", err);
@@ -36,6 +38,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/wedding-stats" element={<WeddingStats />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
