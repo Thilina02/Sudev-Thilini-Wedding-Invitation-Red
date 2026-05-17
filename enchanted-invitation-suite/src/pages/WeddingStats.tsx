@@ -169,11 +169,10 @@ const RsvpCard = ({ row }: { row: RsvpRow }) => {
               margin: "2px 0 0",
               fontSize: "12px",
               color: "rgba(255,255,255,0.4)",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
+              whiteSpace: "normal",
+              wordBreak: "break-word",
+              lineHeight: "1.5",
             }}
-            title={row.message}
           >
             "{row.message}"
           </p>
